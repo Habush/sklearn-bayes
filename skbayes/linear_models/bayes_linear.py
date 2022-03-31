@@ -31,7 +31,7 @@ class BayesianLinearRegression(RegressorMixin,LinearModel):
         
     def _center_data(self,X,y):
         ''' Centers data'''
-        X     = as_float_array(X,self.copy_X)
+        X     = as_float_array(X, copy=self.copy_X)
         # normalisation should be done in preprocessing!
         X_std = np.ones(X.shape[1], dtype = X.dtype)
         if self.fit_intercept:
