@@ -738,6 +738,8 @@ def get_kernel( X, Y, gamma, degree, coef0, kernel, kernel_params ):
     '''
     Calculates kernelised features for RVR and RVC
     '''
+    if isinstance(kernel, str) and kernel == "precomputed":
+        return X
     if callable(kernel):
         params = kernel_params or {}
     else:
