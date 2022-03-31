@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.special import psi, gammaln
-from scipy.misc import logsumexp
+from scipy.special import logsumexp
 from sklearn.base import BaseEstimator
 from sklearn.utils.extmath import safe_sparse_dot
 from sklearn.utils.validation import check_is_fitted

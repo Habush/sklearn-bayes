@@ -1,15 +1,15 @@
 import numpy as np
 from sklearn.base import RegressorMixin, BaseEstimator
 import six
-from sklearn.linear_model.base import LinearModel, LinearClassifierMixin
+from sklearn.linear_model._base import LinearModel, LinearClassifierMixin
 from sklearn.utils import check_X_y,check_array,as_float_array
 from sklearn.utils.multiclass import check_classification_targets
-from sklearn.utils.extmath import pinvh,log_logistic,safe_sparse_dot 
+from sklearn.utils.extmath import log_logistic,safe_sparse_dot
 from sklearn.metrics.pairwise import pairwise_kernels
 from sklearn.utils.validation import check_is_fitted
 from scipy.special import expit
 from scipy.optimize import fmin_l_bfgs_b
-from scipy.linalg import solve_triangular
+from scipy.linalg import solve_triangular, pinvh
 from scipy.stats import logistic
 from numpy.linalg import LinAlgError
 import scipy.sparse

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from sklearn.base import BaseEstimator
-from scipy.special import psi,gammaln
-from scipy.misc import logsumexp
+from scipy.special import psi,gammaln,logsumexp
 from scipy.linalg import pinvh
 from sklearn.utils import check_array
 from sklearn.utils.validation import check_is_fitted

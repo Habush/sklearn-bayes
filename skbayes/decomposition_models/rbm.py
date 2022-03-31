@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.random import multinomial
 from scipy.special import expit
-from scipy.misc import logsumexp
+from scipy.special import logsumexp
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.utils import gen_even_slices, check_array
 from sklearn.utils.extmath import safe_sparse_dot

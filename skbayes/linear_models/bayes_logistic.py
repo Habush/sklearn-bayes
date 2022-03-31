@@ -1,13 +1,13 @@
 import numpy as np
 from scipy.optimize import fmin_l_bfgs_b
-from sklearn.utils.optimize import newton_cg
+from sklearn.utils.optimize import _newton_cg
 from scipy.special import expit, exprel
 from scipy.linalg import eigvalsh
 from sklearn.utils.multiclass import check_classification_targets
-from sklearn.linear_model.base import LinearClassifierMixin, BaseEstimator
+from sklearn.linear_model._base import LinearClassifierMixin, BaseEstimator
 from sklearn.utils import check_X_y
 from scipy.linalg import solve_triangular
-from sklearn.linear_model.logistic import ( _logistic_loss_and_grad, _logistic_loss, 
+from sklearn.linear_model._logistic import ( _logistic_loss_and_grad, _logistic_loss,
                                             _logistic_grad_hess,)
 
 
@@ -272,7 +272,7 @@ class EBLogisticRegression(BayesianLogisticRegression):
             grad = lambda w,*args: _logistic_loss_and_grad(w,*args)[1]
             hess = _logistic_grad_hess               
             args = (X[:,:-1],Y,alpha0)
-            w    = newton_cg(hess, f, grad, w0, args=args,
+            w    = _newton_cg(hess, f, grad, w0, args=args,
                              maxiter=self.n_iter, tol=self.tol)[0]
         else:
             raise NotImplementedError('Liblinear solver is not yet implemented')
